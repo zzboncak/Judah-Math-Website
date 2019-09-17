@@ -1,0 +1,32 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Judah's Math Website!</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="widt=device-width">
+        <meta name="description" type="A place where Judah can learn math">
+        <link rel="stylesheet" type="text/css" href="main.css" />
+    </head>
+    <body>
+        <header role="header" class="header">
+            <h1>Let's Do Some Math!</h1>
+        </header>
+
+        <form>
+            <fieldset class="question">
+                <h2>What do you get when you add <span id="num1">4</span> and <span id="num2">7</span>?</h2>
+                <input type="number" name="number">
+                <button type="submit" name="submit">Let's See!</button>
+                <input type="button" id="generate" value="Get different numbers">
+            </fieldset>
+        </form>
+
+        <section class="results">
+            <h2>Were you right?</h2>
+            <p class="feedback"></p>
+        </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+    </body>
+</html>
