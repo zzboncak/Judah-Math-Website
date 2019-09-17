@@ -7,7 +7,11 @@ function generateNumbers() {
     //this function will generate two random numbers to appear in the h2 tag
     num1 = Math.floor(Math.random()*10);
     num2 = Math.floor(Math.random()*10);
-    console.log(`generateNumbers ran!`);
+    $('#num1').text(num1);
+    //console.log(num1);
+    $('#num2').text(num2);
+    //console.log(num2);
+    //console.log(`generateNumbers ran!`);
 }
 
 function evaluateInput() {
@@ -15,8 +19,9 @@ function evaluateInput() {
     console.log(`evaluateInput ran!`);
 }
 
-function renderResults() {
+function renderResults(result) {
     //this function will display in the results section if the input was correct or incorrect
+    
     console.log(`renderResults ran!`);
 }
 
