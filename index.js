@@ -22,6 +22,7 @@ function evaluateInput() {
     let userAnswer = $('#number').val();
     if (userAnswer == correctAnswer) {
         renderResults("Yes!");
+        score += 1;
     }
     else {
         renderResults("Uh, oh. Try again!");
