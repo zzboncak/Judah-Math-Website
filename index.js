@@ -8,13 +8,14 @@ function renderForm() {
     //this function will render the quiz form to the page
     $('#quiz-form').removeClass("hidden");
     $('.results').addClass("hidden");
+    document.getElementById('number').focus();
     generateNumbers();
 }
 
 function generateNumbers() {
     //this function will generate two random numbers between 1 and 10 to appear in the h2 tag
-    num1 = Math.floor(Math.random()*10) + 1;
-    num2 = Math.floor(Math.random()*10) + 1;
+    num1 = Math.floor(Math.random()*15) + 1;
+    num2 = Math.floor(Math.random()*15) + 1;
     $('#num1').text(num1);
     //console.log(num1);
     $('#num2').text(num2);
