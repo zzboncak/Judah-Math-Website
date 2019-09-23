@@ -5,9 +5,9 @@ let num2;
 let correctAnswer;
 
 function generateNumbers() {
-    //this function will generate two random numbers to appear in the h2 tag
-    num1 = Math.floor(Math.random()*10);
-    num2 = Math.floor(Math.random()*10);
+    //this function will generate two random numbers between 1 and 10 to appear in the h2 tag
+    num1 = Math.floor(Math.random()*10) + 1;
+    num2 = Math.floor(Math.random()*10) + 1;
     $('#num1').text(num1);
     //console.log(num1);
     $('#num2').text(num2);
@@ -23,9 +23,13 @@ function evaluateInput() {
     if (userAnswer == correctAnswer) {
         renderResults("Yes!");
         score += 1;
+        renderScore();
+        $('#number').val("");
     }
     else {
         renderResults("Uh, oh. Try again!");
+        renderScore();
+        $('#number').val("");
     }
     console.log(`evaluateInput ran!`);
 }
@@ -34,6 +38,11 @@ function renderResults(result) {
     //this function will display in the results section if the input was correct or incorrect
     $('.feedback').text(result);
     console.log(`renderResults ran!`);
+}
+
+function renderScore() {
+    //this function is responsible for rendering the current score to the page
+    $('#score').text(score);
 }
 
 $('#submit').click(evaluateInput);
