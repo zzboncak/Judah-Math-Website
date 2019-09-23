@@ -25,7 +25,8 @@ function generateNumbers() {
 
 function evaluateInput() {
     //this function will evaluate if the user's input is the sum of the two numbers.
-    event.preventDefault;
+    $('#quiz-form').submit(event => {
+    event.preventDefault();
     let userAnswer = $('#number').val();
     if (userAnswer == correctAnswer) {
         renderResults(true);
@@ -38,8 +39,9 @@ function evaluateInput() {
         renderScore();
         $('#number').val("");
     }
-    console.log(`evaluateInput ran!`);
-}
+    //console.log(`evaluateInput ran!`);
+});
+};
 
 function renderResults(result) {
     //this function will display in the results section if the input was correct or incorrect
@@ -57,12 +59,17 @@ function renderScore() {
     $('#score').text(score);
 }
 
-$('#submit').click(evaluateInput);
 
-//generates a new number when the button is clicked
+function main() {
+    renderForm();
+    evaluateInput();
+}
+
+//event listeners
 $('#generate').click(generateNumbers);
 $('#result-right').click(renderForm);
 $('#result-wrong').click(renderForm);
 
 
-renderForm();
+
+$(main);
