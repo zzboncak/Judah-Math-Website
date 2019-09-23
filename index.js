@@ -4,6 +4,13 @@ let num1;
 let num2;
 let correctAnswer;
 
+function renderForm() {
+    //this function will render the quiz form to the page
+    $('#quiz-form').removeClass("hidden");
+    $('.results').addClass("hidden");
+    generateNumbers();
+}
+
 function generateNumbers() {
     //this function will generate two random numbers between 1 and 10 to appear in the h2 tag
     num1 = Math.floor(Math.random()*10) + 1;
@@ -21,13 +28,13 @@ function evaluateInput() {
     event.preventDefault;
     let userAnswer = $('#number').val();
     if (userAnswer == correctAnswer) {
-        renderResults("Yes!");
+        renderResults(true);
         score += 1;
         renderScore();
         $('#number').val("");
     }
     else {
-        renderResults("Uh, oh. Try again!");
+        renderResults(false);
         renderScore();
         $('#number').val("");
     }
@@ -36,7 +43,12 @@ function evaluateInput() {
 
 function renderResults(result) {
     //this function will display in the results section if the input was correct or incorrect
-    $('.feedback').text(result);
+    $('#quiz-form').toggleClass("hidden");
+    if(result === true) {
+        $('.results-correct').toggleClass("hidden");
+    } else if (result === false) {
+        $('.results-wrong').toggleClass("hidden");
+    }
     console.log(`renderResults ran!`);
 }
 
@@ -49,6 +61,8 @@ $('#submit').click(evaluateInput);
 
 //generates a new number when the button is clicked
 $('#generate').click(generateNumbers);
+$('#result-right').click(renderForm);
+$('#result-wrong').click(renderForm);
 
-//when the page loads random numbers will be generated to display
-generateNumbers();
+
+renderForm();

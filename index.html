@@ -8,28 +8,35 @@
         <link rel="stylesheet" type="text/css" href="main.css" />
     </head>
     <body>
-        <header role="header" class="header">
-            <h1>Let's Do Some Math!</h1>
-        </header>
-        
-        <section role="score">
-            <div class="score"><h2>Score: <span id="score">0</span></h2></div>
-        </section>
+        <main role="main">
+            <header role="header" class="header">
+                <h1>Let's Do Some Math!</h1>
+            </header>
+            
+            <section role="score">
+                <div class="score"><h2>Score: <span id="score">0</span></h2></div>
+            </section>
 
-        <form>
-            <fieldset class="question">
-                <h2>What do you get when you add <span id="num1">4</span> and <span id="num2">7</span>?</h2>
-                <input type="number" id="number">
-                <input type="button" id="submit" value="Let's See!">
-                <input type="button" id="generate" value="Get different numbers">
-            </fieldset>
-        </form>
+            <form id="quiz-form" class="hidden">
+                <fieldset class="question">
+                    <h2>What is <span id="num1">4</span> + <span id="num2">7</span>?</h2>
+                    <input type="number" id="number">
+                    <input type="button" id="submit" value="Let's See!">
+                    <input type="button" id="generate" value="Get different numbers">
+                </fieldset>
+            </form>
 
-        <section class="results">
-            <h2>Were you right?</h2>
-            <p class="feedback"></p>
-        </section>
+            <section class="results results-correct hidden">
+                <h2>Yes!! Let's do another.</h2>
+                <input type="button" id="result-right" value="Get different numbers">
+            </section>
 
+            <section class="results results-wrong hidden">
+                <h2>Try Again!</h2>
+                <input type="button" id="result-wrong" value="Get different numbers">
+            </section>
+
+        </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
     </body>
