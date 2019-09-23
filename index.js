@@ -33,11 +33,13 @@ function evaluateInput() {
         score += 1;
         renderScore();
         $('#number').val("");
+        document.getElementById("result-right").focus();
     }
     else {
         renderResults(false);
         renderScore();
         $('#number').val("");
+        document.getElementById("result-wrong").focus();
     }
     //console.log(`evaluateInput ran!`);
 });
