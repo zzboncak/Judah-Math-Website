@@ -17,12 +17,19 @@
                 <div class="score"><h2>Score: <span id="score">0</span> / <span id="try-count">0</span></h2></div>
             </section>
 
+            <form id="start-form">
+                <fieldset class="start">
+                    <h2>Are you ready to do some math?</h2>
+                    <button type="button" id="start-button">Let's do it!</button>
+                </fieldset>
+            </form>
+
             <form id="quiz-form" class="hidden">
                 <fieldset class="question">
-                    <h2>What is <span id="num1">4</span> + <span id="num2">7</span>?</h2>
+                    <h2>What is <span id="num1">4</span> x <span id="num2">7</span>?</h2>
                     <input type="number" id="number" placeholder="Type something!">
                     <button type="submit" id="submit">Let's See!</button>
-                    <input type="button" id="generate" value="Get different numbers">
+                    <button type="button" id="generate">Get different numbers</button>
                 </fieldset>
             </form>
 

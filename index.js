@@ -2,9 +2,11 @@
 let score = 0;
 let tryCount = 0;
 let correctAnswer;
+let multiplicationFactor;
 
 function renderForm() {
     //this function will render the quiz form to the page
+    $('#start-form').addClass("hidden");
     $('#quiz-form').removeClass("hidden");
     $('.results').addClass("hidden");
     document.getElementById('number').focus();
@@ -13,11 +15,11 @@ function renderForm() {
 
 function generateNumbers() {
     //this function will generate two random numbers between 1 and 10 to appear in the h2 tag
-    let num1 = Math.floor(Math.random()*10) + 1;
-    let num2 = Math.floor(Math.random()*10) + 1;
+    let num1 = Math.ceil(Math.random()*10);
+    let num2 = Math.ceil(Math.random()*3);
     $('#num1').text(num1);
     $('#num2').text(num2);
-    correctAnswer = num1 + num2;
+    correctAnswer = num1 * num2;
 }
 
 function renderResults(result) {
@@ -36,34 +38,27 @@ function renderScore() {
     $('#try-count').text(tryCount);
 }
 
-
-function main() {
-    renderForm();
-    //evaluateInput();
-    $('#quiz-form').submit(event => {
-        event.preventDefault();
-        let userAnswer = $('#number').val();
-        if (userAnswer == correctAnswer) {
-            renderResults(true);
-            score += 1;
-            tryCount += 1;
-            renderScore();
-            $('#number').val("");
-            document.getElementById("result-right").focus();
-        }
-        else {
-            renderResults(false);
-            tryCount += 1;
-            renderScore();
-            $('#number').val("");
-            document.getElementById("result-wrong").focus();
-        }
-    });
-}
-
 //event listeners
 $('#generate').click(generateNumbers);
+$('#start-button').click(renderForm);
 $('#result-right').click(renderForm);
 $('#result-wrong').click(renderForm);
-
-$(main);
+$('#quiz-form').submit(event => {
+    event.preventDefault();
+    let userAnswer = $('#number').val();
+    if (userAnswer == correctAnswer) {
+        renderResults(true);
+        score += 1;
+        tryCount += 1;
+        renderScore();
+        $('#number').val("");
+        document.getElementById("result-right").focus();
+    }
+    else {
+        renderResults(false);
+        tryCount += 1;
+        renderScore();
+        $('#number').val("");
+        document.getElementById("result-wrong").focus();
+    }
+});
