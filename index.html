@@ -20,13 +20,14 @@
             <form id="start-form">
                 <fieldset class="start">
                     <h2>Are you ready to do some math?</h2>
-                    <button type="button" id="start-button">Let's do it!</button>
+                    <button type="button" id="addition-start-button">+ Addition</button>
+                    <button type="button" id="multiplication-start-button">x Multiplication</button>
                 </fieldset>
             </form>
 
             <form id="quiz-form" class="hidden">
                 <fieldset class="question">
-                    <h2>What is <span id="num1">4</span> x <span id="num2">7</span>?</h2>
+                    <h2>What is <span id="num1"></span> <span id="math-operation"></span> <span id="num2"></span>?</h2>
                     <input type="number" id="number" placeholder="Type something!">
                     <button type="submit" id="submit">Let's See!</button>
                     <button type="button" id="generate">Get different numbers</button>
